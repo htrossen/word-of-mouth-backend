@@ -1,0 +1,9 @@
+type Query {
+    qualifications: [Qualification]
+}
+
+type Qualification {
+    qualification: String
+    description: String
+    categoryRestrictions: List<Category>
+}

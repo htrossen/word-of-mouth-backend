@@ -1,13 +1,21 @@
 extend type Query {
-    reviews(snackId: ID!): [Review]
+    reviews(companyId: ID!): [Review]
 }
 
 type Review {
-    snackId: ID!
-    rating: Int
-    text: String!
+    id: ID!
+    companyId: ID!
+    rating: Int!
+    wouldRecommend: Boolean
+    description: String
+    helpful: Int
+    notHelpful: Int
+    reported: Int
 }
 
 extend type Mutation {
-    newReview(snackId: ID!, rating: Int, text:String!) : Review!
+    newReview(companyId: ID!, rating: Int!, wouldRecommend: Boolean, description: String) : Review!
+    helpful(id: ID!, selected: Boolean) : Review!
+    notHelpful(id: ID!, selected: Boolean) : Review!
+    reported(id: ID!, selected: Boolean) : Review!
 }
