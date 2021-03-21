@@ -1,12 +1,12 @@
 package haileyj.wordofmouthbackend.constants
 
 enum class Qualification(var qualification: String, var description: String, var categoryRestrictions: List<Category> = emptyList()) {
+    ALUMINUM_FREE("Aluminum Free", "Aluminum Free"),
     ANIMAL_FIRST_INGREDIENT(
             "Meat, poultry, or seafood as first ingredient",
             "Meat, poultry, or seafood as first ingredient",
             listOf(Category.PETS)
     ),
-    BIO_BASED("Bio-Based", "Bio-Based"),
     BIODEGRADABLE("Biodegradable", "Biodegradable"),
     CRUELTY_FREE("Cruelty Free", "Cruelty Free"),
     DYE_FREE("Dye Free", "Dye Free"),
@@ -33,5 +33,7 @@ enum class Qualification(var qualification: String, var description: String, var
     SUSTAINABLE_SEAFOOD("Sustainable Seafood", "Sustainable Seafood"),
     VEGAN("Vegan", "Vegan"),
     VEGETARIAN("Vegetarian", "Vegetarian"),
-    WHOLE_GRAIN("Whole Grain", "Whole Grain")
+    WHOLE_GRAIN("Whole Grain", "Whole Grain"),
+    BLACK_OWNED_FOUNDED("Black Owned or Founded", "Black Owned or Founded"),
+    WOMEN_OWNED_FOUNDED("Black Owned or Founded", "Black Owned or Founded"),
 }
