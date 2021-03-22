@@ -12,25 +12,32 @@ import java.util.*
 class CompanyMutationResolver(private val companyRepository: CompanyRepository): GraphQLMutationResolver {
     fun newCompany(
             name: String,
-            category: Category,
+            category: String,
             imageUrl: String,
             companyUrl: String?,
             address: String?,
             city: String?,
             state: String?,
             zipcode: String?,
-            qualifications: List<Qualification>?
+            qualifications: List<String>?
     ): Company {
+
+        val qualificationsList: MutableList<Qualification> = mutableListOf()
+
+        qualifications?.forEach {
+            qualificationsList.add(Qualification.valueOf(it))
+        }
+
         val company = Company(
                 name,
-                category,
+                Category.valueOf(category),
                 imageUrl,
                 companyUrl,
                 address,
                 city,
                 state,
                 zipcode,
-                qualifications ?: emptyList()
+                qualificationsList
         )
         company.id = UUID.randomUUID().toString()
         companyRepository.save(company)

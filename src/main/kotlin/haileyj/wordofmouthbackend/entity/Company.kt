@@ -21,7 +21,7 @@ data class Company(
     var id: String = ""
 
     @Transient
-    var rating: Double? = null
+    var rating: Float? = null
 
     @Transient
     var reviews: List<Review> = ArrayList()

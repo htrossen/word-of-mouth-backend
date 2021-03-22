@@ -1,11 +1,11 @@
-package haileyj.wordofmouth
+package haileyj.wordofmouthbackend
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class WordOfMouthApplication
+class WordOfMouthBackendApplication
 
 fun main(args: Array<String>) {
-	runApplication<WordOfMouthApplication>(*args)
+	runApplication<WordOfMouthBackendApplication>(*args)
 }

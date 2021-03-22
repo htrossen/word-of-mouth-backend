@@ -15,7 +15,7 @@ class CompanyQueryResolver(val companyRepository: CompanyRepository, private val
         val list = companyRepository.findAll()
         for (item in list) {
             val reviews = getReviews(companyId = item.id)
-            item.rating = reviews.sumOf { it.rating }.toDouble().div(reviews.size)
+            item.rating = if (reviews.isNotEmpty()) reviews.sumOf { it.rating }.toFloat().div(reviews.size) else null
             item.reviews = getReviews(companyId = item.id)
         }
         return list

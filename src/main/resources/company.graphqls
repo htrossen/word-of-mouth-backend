@@ -1,33 +1,33 @@
-type Query {
+extend type Query {
     companies: [Company]
 }
 
 type Company {
     id: ID!
-    name: String
-    category: Category
-    imageUrl: String
+    name: String!
+    category: Category!
+    imageUrl: String!
     companyUrl: String
     address: String
     city: String
     state: String
     zipcode: String
-    qualifications: [Qualification]
-    rating: Double
-    reviews: [Review]
+    qualifications: [Qualification]!
+    rating: Float
+    reviews: [Review]!
 }
 
 type Mutation {
     newCompany(
         name: String!,
-        category: Category!,
+        category: String!,
         imageUrl: String!,
         companyUrl: String,
         address: String,
         city: String,
         state: String,
         zipcode: String,
-        qualifications: [Qualification]
+        qualifications: [String]
     ) : Company!
     deleteCompany(id: ID!) : Boolean
 }

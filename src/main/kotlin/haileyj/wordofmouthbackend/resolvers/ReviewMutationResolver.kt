@@ -20,7 +20,7 @@ class ReviewMutationResolver(private val reviewRepository: ReviewRepository): Gr
         return review
     }
 
-    fun helpful(id: String, selected: Boolean) {
+    fun helpful(id: String, selected: Boolean): Review {
         val review = reviewRepository.findById(id)
         review.ifPresent {
             if (selected) {
@@ -29,9 +29,10 @@ class ReviewMutationResolver(private val reviewRepository: ReviewRepository): Gr
                 it.helpful = it.helpful - 1
             }
         }
+        return review.get()
     }
 
-    fun notHelpful(id: String, selected: Boolean) {
+    fun notHelpful(id: String, selected: Boolean): Review {
         val review = reviewRepository.findById(id)
         review.ifPresent {
             if (selected) {
@@ -40,9 +41,10 @@ class ReviewMutationResolver(private val reviewRepository: ReviewRepository): Gr
                 it.notHelpful = it.notHelpful - 1
             }
         }
+        return review.get()
     }
 
-    fun reported(id: String, selected: Boolean) {
+    fun reported(id: String, selected: Boolean): Review {
         val review = reviewRepository.findById(id)
         review.ifPresent {
             if (selected) {
@@ -51,5 +53,6 @@ class ReviewMutationResolver(private val reviewRepository: ReviewRepository): Gr
                 it.reported = it.reported - 1
             }
         }
+        return review.get()
     }
 }

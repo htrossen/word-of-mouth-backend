@@ -15,7 +15,7 @@ type Review {
 
 extend type Mutation {
     newReview(companyId: ID!, rating: Int!, wouldRecommend: Boolean, description: String) : Review!
-    helpful(id: ID!, selected: Boolean) : Review!
-    notHelpful(id: ID!, selected: Boolean) : Review!
-    reported(id: ID!, selected: Boolean) : Review!
+    helpful(id: ID!, selected: Boolean!) : Review!
+    notHelpful(id: ID!, selected: Boolean!) : Review!
+    reported(id: ID!, selected: Boolean!) : Review!
 }
